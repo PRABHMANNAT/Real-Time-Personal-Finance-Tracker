@@ -219,12 +219,6 @@ npm run preview   # preview build
 
 ---
 
-## 📜 License
-
-MIT — see `LICENSE`.
-
----
-
 ## 🙏 Acknowledgements
 
 * **Pathway** for real-time pipelines & vector store
@@ -235,9 +229,9 @@ MIT — see `LICENSE`.
 
 ## 📬 Contact
 
-**Prabhmannat Singh**
-Website: [https://prabh.site](https://prabh.site)
-Email: [contact@prabh.site](mailto:contact@prabh.site)
+**Prabhmannat Singh** <br>
+
+Email: [contact@prabh.site](mailto:contact@prabh.site) <br>
 LinkedIn: [https://linkedin.com/in/prabhmannat](https://linkedin.com/in/prabhmannat)
 
 ```
