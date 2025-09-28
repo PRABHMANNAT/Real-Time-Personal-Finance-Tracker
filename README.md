@@ -1,130 +1,247 @@
-# 💰 Real-Time Personal Finance Tracker
+Here’s a polished, copy-paste-ready `README.md` you can drop straight into your repo. It assumes you’ll place the screenshot at `assets/finance-dashboard-mobile.png`.
 
-An AI-powered, real-time personal finance assistant that helps users understand their spending, make smarter financial decisions, and visualize their transactions instantly. Built for **FrostHack 2025** under the problem statement by **Pathway & FetchAI**.
+```md
+<p align="center">
+  <img src="assets/finance-dashboard-mobile.png"
+       alt="Real-Time Personal Finance Tracker — mobile UI (dashboard, analytics & AI assistant)"
+       width="900">
+</p>
 
----
+# Real-Time Personal Finance Tracker
 
-## 🚀 Features
-
-- 🔄 Real-time transaction ingestion & indexing with **Pathway**
-- 🧠 Natural language query answering via **FetchAI autonomous agents**
-- 📊 Interactive data visualization with day-wise expenditure charts
-- 🧾 Intelligent financial insights like "Can I afford this?" or "What did I spend on groceries last week?"
-- 🌐 Web-based UI with text + visual response integration
-
----
-
-## 🛠️ Tech Stack
-
-### Backend:
-- **FetchAI AI Agents** – LLM-powered agents for reasoning & dynamic replies ([docs](https://fetch.ai/docs/))
-- **Pathway Vector Store** – Real-time, context-aware data handling ([pathway.com](https://pathway.com))
-- **Node.js + Express.js** – API handling and backend logic
-
-### Frontend:
-- **React.js** – SPA for querying and displaying results
-- **Tailwind CSS** – Clean, responsive styling
-- **Chart.js** – For rendering expenditure visualizations
-
-### Dev Tools:
-- **Docker** – Containerized dev & deployment
-- **GitHub Actions** – Automated CI/CD
-- **Jest** – Unit & integration testing
+AI-powered, real-time personal finance assistant that turns raw transactions into answers, charts, and decisions. Built for **FrostHack 2025** under the problem statement by **Pathway & FetchAI**.
 
 ---
 
-## 📈 Use Cases
+## Highlights
 
-- "How much did I spend on food this week?"
-- "Can I afford a ₹5000 purchase today?"
-- "Show me a chart of last month's spending."
-
----
-
-## 🧪 How It Works
-
-1. **User Inputs** a natural language query (e.g., "What did I spend yesterday?")
-2. **Transaction Data** is fetched & indexed in real-time using Pathway
-3. **FetchAI Agent** processes the query, performs reasoning, and returns text + chart-based response
-4. **Frontend** displays the response + interactive visual breakdown
+- **Live ingestion** with **Pathway** for streaming transactions and incremental indexing  
+- **LLM agents** via **FetchAI** for natural-language queries and reasoning  
+- **Actionable insights** like “Can I afford ₹5,000 today?” or “What did I spend on groceries last week?”  
+- **Interactive charts** (day/week/month) and category breakdowns  
+- **Web UI** with unified text + visual responses
 
 ---
 
-## 🧠 Architecture
+## Tech Stack
 
-**System Flow:**
-- User input → React Frontend
-- React sends query to Express Backend
-- Backend invokes FetchAI Agent for reasoning
-- Pathway handles real-time data lookup
-- Response is returned with text + chart data
-- Frontend displays response and charts
+**Backend**
+- FetchAI autonomous agents (LLM-powered reasoning & tool use)
+- Pathway vector store + stream processing
+- Node.js + Express.js API
+
+**Frontend**
+- React (SPA), Vite
+- Tailwind CSS
+- Chart.js
+
+**Dev/Infra**
+- Docker (optional)
+- GitHub Actions (CI/CD)
+- Jest (tests)
 
 ---
 
-## 📦 Setup Instructions
+## 🔎 Why this project
 
-1. **Clone this repo**
-```bash
-git clone https://github.com/yourusername/real-time-finance-tracker.git
-cd real-time-finance-tracker
+Most finance apps are batch-based and opaque. This project is **real-time, queryable, and explainable**:
+- **Real-time**: new transactions are indexed immediately; charts update without rebuilds  
+- **Queryable**: ask questions in natural language; the agent routes to data + tools  
+- **Explainable**: responses include reasoning-grade text **and** data-backed visuals
+
+---
+
+## How it works
+
+1. User asks a question (e.g., “What did I spend yesterday?”).  
+2. Backend streams/ingests transactions into **Pathway**; embeddings are updated.  
+3. **FetchAI** agent plans tools → retrieves facts → computes aggregates → prepares chart data.  
+4. Frontend renders an answer + chart (category or time-series as appropriate).
+
+---
+
+## 📁 Project structure
+
 ```
 
-2. **Install backend dependencies**
+Real-Time-Personal-Finance-Tracker/
+├─ backend/
+│  ├─ src/
+│  │  ├─ index.ts            # Express bootstrap
+│  │  ├─ agent/              # FetchAI agent orchestration
+│  │  ├─ pathway/            # Pathway pipelines & vector store glue
+│  │  └─ routes/             # /api/query, /api/ingest, etc.
+│  ├─ tests/
+│  └─ package.json
+├─ frontend/
+│  ├─ src/
+│  │  ├─ App.tsx             # Query UI + chart panels
+│  │  ├─ components/         # Charts, Cards, Inputs
+│  │  └─ lib/                # API client, utils
+│  └─ package.json
+├─ assets/
+│  └─ finance-dashboard-mobile.png
+└─ README.md
+
+````
+
+---
+
+## ⚙️ Setup
+
+### Prerequisites
+- Node.js **18+**
+- (Optional) Docker Desktop
+
+### 1) Clone
+
+```bash
+git clone https://github.com/PRABHMANNAT/Real-Time-Personal-Finance-Tracker.git
+cd Real-Time-Personal-Finance-Tracker
+````
+
+### 2) Backend
+
 ```bash
 cd backend
 npm install
+cp .env.example .env
+npm run dev   # or: npm start
 ```
 
-3. **Start backend server**
-```bash
-npm start
+**Backend `.env` example**
+
+```env
+# FetchAI / LLM
+FETCHAI_API_KEY=your_key_here
+
+# Pathway / storage
+PATHWAY_ENDPOINT=http://localhost:PORT
+PATHWAY_PROJECT=rt-finance
+PATHWAY_API_KEY=your_key_here
+
+# Server
+PORT=8080
+NODE_ENV=development
 ```
 
-4. **Install frontend dependencies**
+### 3) Frontend
+
 ```bash
 cd ../frontend
 npm install
-```
-
-5. **Run frontend app**
-```bash
+cp .env.example .env
 npm run dev
 ```
 
-6. **(Optional)** Add real transaction data ingestion or mock data scripts in `/data`
+**Frontend `.env` example**
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
 
 ---
 
-## 🎯 Built For
+## 🔌 API shape
 
-- **FrostHack 2025** – Problem Statement by Pathway & FetchAI
-- Focused on real-world applications of AI agents and real-time data processing
+**Query**
+
+```http
+POST /api/query
+Content-Type: application/json
+
+{
+  "question": "How much did I spend on groceries last week?"
+}
+```
+
+**Response (example)**
+
+```json
+{
+  "text": "You spent ₹3,245 on groceries last week across 4 transactions.",
+  "chart": {
+    "type": "bar",
+    "labels": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+    "series": [0, 0, 1225, 0, 960, 0, 1060]
+  }
+}
+```
+
+**Ingest (mock/dev)**
+
+```http
+POST /api/ingest
+{
+  "transactions": [
+    { "ts": "2025-09-27T10:01:00Z", "merchant": "Big Bazaar", "amount": 960, "category": "Groceries" }
+  ]
+}
+```
 
 ---
 
-## 🙌 Credits
+## 🖥️ Scripts
 
-- **Team:** Prabhmannat Singh ([@PRABHMANNAT](https://github.com/PRABHMANNAT))
-- **Special Thanks:** Pathway, FetchAI, FrostHack organizers
+**Backend**
+
+```bash
+npm run dev       # nodemon/dev server
+npm run start     # prod server
+npm run test      # unit/integration
+```
+
+**Frontend**
+
+```bash
+npm run dev       # vite dev server
+npm run build     # production build
+npm run preview   # preview build
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 🧭 Use cases
 
-- 🏦 Integration with real bank APIs (e.g., Plaid, Razorpay)
-- 📱 Launch mobile version (Flutter / React Native)
-- 🔐 End-to-end encrypted data sync
-- 📊 Monthly budget recommendation engine
+* “How much did I spend on **Food** this week?”
+* “**Can I afford** a ₹5,000 purchase right now?”
+* “Show me a **chart** of last month’s spending.”
+* “What are my **recurring** subscriptions and their monthly total?”
+
+---
+
+
+## 🤝 Contributing
+
+1. Fork the repo and create a feature branch.
+2. Stick to conventional commits (e.g., `feat:`, `fix:`, `chore:`).
+3. Add tests where it makes sense.
+4. Open a pull request with a clear description and screenshots if UI changes.
+
+---
+
+## 📜 License
+
+MIT — see `LICENSE`.
+
+---
+
+## 🙏 Acknowledgements
+
+* **Pathway** for real-time pipelines & vector store
+* **FetchAI** for autonomous agent tooling
+* **FrostHack** organizers and mentors @IIT MANDI
 
 ---
 
 ## 📬 Contact
 
-**Website:** [prabh.site](https://prabh.site)  
-**Email:** contact@prabh.site  
-**LinkedIn:** [linkedin.com/in/prabhmannat](https://linkedin.com/in/prabhmannat)
+**Prabhmannat Singh**
+Website: [https://prabh.site](https://prabh.site)
+Email: [contact@prabh.site](mailto:contact@prabh.site)
+LinkedIn: [https://linkedin.com/in/prabhmannat](https://linkedin.com/in/prabhmannat)
 
----
+```
 
-> _"Make finance feel like texting a smart friend — one who actually knows your wallet."_
+**Tip:** keep the image at `assets/finance-dashboard-mobile.png` and commit it first, so the README preview renders perfectly on GitHub.
+```
