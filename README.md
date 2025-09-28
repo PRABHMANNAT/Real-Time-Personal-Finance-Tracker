@@ -1,14 +1,12 @@
-Here’s a polished, copy-paste-ready `README.md` you can drop straight into your repo. It assumes you’ll place the screenshot at `assets/finance-dashboard-mobile.png`.
 
-```md
-<p align="center">
-  <img src="assets/finance-dashboard-mobile.png"
-       alt="Real-Time Personal Finance Tracker — mobile UI (dashboard, analytics & AI assistant)"
-       width="900">
-</p>
 
 # Real-Time Personal Finance Tracker
 
+<p align="left">
+  <img src="https://raw.githubusercontent.com/PRABHMANNAT/Real-Time-Personal-Finance-Tracker/main/assets/finance-dashboard-mobile.png"
+       alt="Real-Time Personal Finance Tracker — mobile UI (dashboard, analytics & AI assistant)"
+       width="700">
+</p>
 AI-powered, real-time personal finance assistant that turns raw transactions into answers, charts, and decisions. Built for **FrostHack 2025** under the problem statement by **Pathway & FetchAI**.
 
 ---
@@ -17,7 +15,7 @@ AI-powered, real-time personal finance assistant that turns raw transactions int
 
 - **Live ingestion** with **Pathway** for streaming transactions and incremental indexing  
 - **LLM agents** via **FetchAI** for natural-language queries and reasoning  
-- **Actionable insights** like “Can I afford ₹5,000 today?” or “What did I spend on groceries last week?”  
+- **Actionable insights** like “Can I afford ₹5,000 today?” and “What did I spend on groceries last week?”  
 - **Interactive charts** (day/week/month) and category breakdowns  
 - **Web UI** with unified text + visual responses
 
@@ -27,11 +25,11 @@ AI-powered, real-time personal finance assistant that turns raw transactions int
 
 **Backend**
 - FetchAI autonomous agents (LLM-powered reasoning & tool use)
-- Pathway vector store + stream processing
+- Pathway (real-time pipelines + vector store)
 - Node.js + Express.js API
 
 **Frontend**
-- React (SPA), Vite
+- React (Vite)
 - Tailwind CSS
 - Chart.js
 
@@ -45,20 +43,21 @@ AI-powered, real-time personal finance assistant that turns raw transactions int
 ## 🔎 Why this project
 
 Most finance apps are batch-based and opaque. This project is **real-time, queryable, and explainable**:
-- **Real-time**: new transactions are indexed immediately; charts update without rebuilds  
-- **Queryable**: ask questions in natural language; the agent routes to data + tools  
-- **Explainable**: responses include reasoning-grade text **and** data-backed visuals
+- **Real-time:** new transactions are indexed immediately; charts update without rebuilds  
+- **Queryable:** ask questions in natural language; the agent routes to data + tools  
+- **Explainable:** responses include reasoning-grade text **and** data-backed visuals
 
 ---
 
 ## How it works
 
-1. User asks a question (e.g., “What did I spend yesterday?”).  
+1. You ask a question (e.g., “What did I spend yesterday?”).  
 2. Backend streams/ingests transactions into **Pathway**; embeddings are updated.  
 3. **FetchAI** agent plans tools → retrieves facts → computes aggregates → prepares chart data.  
 4. Frontend renders an answer + chart (category or time-series as appropriate).
 
 ---
+
 
 ## 📁 Project structure
 
